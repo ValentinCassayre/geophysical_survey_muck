@@ -24,6 +24,7 @@ profil = profil[profil[:, 0].argsort()]
 x = np.concatenate((x_geophs, x_shots))
 x.sort()
 y_geophs = profil[:, 1]
+y_shots = np.interp(x_shots, x_geophs, y_geophs)
 
 y = np.interp(x, x_geophs, y_geophs) # interpolation de l'altitude des capteurs (mesurées) pour estimer celle des sources
 xy = np.array((x, y)).T # positions de tous les capteurs et receveurs
